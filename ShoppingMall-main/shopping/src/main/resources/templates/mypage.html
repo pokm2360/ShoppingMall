@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title>마이페이지</title>
+  <link href="/styles.css" rel="stylesheet">
+</head>
+<body>
+  <div th:replace="~{ nav.html::navbar }"></div>
+
+  <h4>마이페이지</h4>
+
+  <div sec:authentication="principal"></div>
+  <div sec:authentication="principal.displayName"></div>
+  <div sec:authorize="hasAuthority('일반유저')"></div>
+<!--  <div sec:authorize="isAuthenticated()"></div> 로그인한 사람만 볼 수 있음-->
+<!--  <div sec:authorize="isAnonymous()"></div> 로그아웃한 사람만 볼 수 있음-->
+    <h4>일반유저만 볼수 있음</h4>
+
+</body>
+</html>

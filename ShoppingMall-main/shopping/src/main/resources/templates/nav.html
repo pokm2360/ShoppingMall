@@ -1,0 +1,158 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/extras/spring-security6">
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light" th:fragment="navbar">
+    <div class="container px-4 px-lg-5">
+        <a class="navbar-brand" href="/">SpringMall</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <!-- 좌측 메뉴 -->
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                <li class="nav-item"><a class="nav-link" href="/list">상품 목록</a></li>
+                <li class="nav-item"><a class="nav-link" href="/write">상품 추가</a></li>
+            </ul>
+
+            <!-- 검색창 -->
+            <div class="text-center my-3">
+                <form onsubmit="return goSearch()" action="/search" method="post" class="search-form">
+                    <input id="searchText" name="searchText" class="rounded-input" placeholder="검색어 입력">
+                    <button type="submit" class="btn-custom">검색</button>
+                </form>
+            </div>
+            <!-- 검색 결과 페이지네이션-->
+            <script>
+                function goSearch() {
+                    const keyword = document.getElementById("searchText").value.trim();
+                    if (keyword) {
+                        window.location.href = '/search/' + encodeURIComponent(keyword) + '/page/1';
+                    }
+                    return false;
+                }
+            </script>
+
+            <!-- 우측 로그인/로그아웃 또는 마이페이지 -->
+          <!--   로그인-->
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item" sec:authorize="isAuthenticated()">
+                    <a class="nav-link" href="/my-page">
+                        <span sec:authentication="principal.username"></span> 님
+                    </a>
+                </li>
+                <li class="nav-item" sec:authorize="isAuthenticated()">
+                    <a class="nav-link" href="/logout "onclick="/logoutJWT">로그아웃</a>
+                </li>
+           <!--    비로그인    -->
+                <li class="nav-item" sec:authorize="isAnonymous()">
+                    <a class="nav-link" href="/login">로그인</a>
+                </li>
+                <li class="nav-item" sec:authorize="isAnonymous()">
+                    <a class="nav-link" href="/register">회원가입</a>
+                </li>
+            </ul>
+
+            <!-- 장바구니 버튼 -->
+            <form class="d-flex">
+                <button class="btn btn-outline-dark" type="submit">
+                    <i class="bi-cart-fill me-1"></i>
+                    Cart
+                    <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
+                </button>
+            </form>
+        </div>
+    </div>
+</nav>
+
+<script>
+    function logoutJWT() {
+  fetch('/logout', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({
+      username: document.querySelector('#username').value,
+      password: document.querySelector('#password').value,
+      displayName: document.querySelector('#displayName').value
+    })
+  })
+  .then(r => r.text())
+  .then((r) => {
+    console.log(r);
+    window.location.href = "/"; // ✅ 로그인 후 리다이렉트
+  });
+}
+</script>
+
+<!--<nav class="navbar navbar-expand-lg navbar-light bg-light" th:fragment="navbar">-->
+<!--    <div class="container px-4 px-lg-5">-->
+<!--        <a class="navbar-brand" href="/">SpringMall</a>-->
+<!--        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"-->
+<!--                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"-->
+<!--                aria-expanded="false" aria-label="Toggle navigation">-->
+<!--            <span class="navbar-toggler-icon"></span>-->
+<!--        </button>-->
+
+<!--        <div class="collapse navbar-collapse" id="navbarSupportedContent">-->
+<!--            &lt;!&ndash; 좌측 메뉴 &ndash;&gt;-->
+<!--            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">-->
+<!--                <li class="nav-item"><a class="nav-link" href="/list">상품 목록</a></li>-->
+<!--                <li class="nav-item" sec:authorize="hasRole('ADMIN')">-->
+<!--                    <a class="nav-link" href="/admin">관리자 전용</a>-->
+<!--                </li>-->
+<!--                <li class="nav-item" sec:authorize="hasRole('ADMIN')">-->
+<!--                    <a class="nav-link" href="/write">상품 추가</a>-->
+<!--                </li>-->
+<!--            </ul>-->
+
+<!--            &lt;!&ndash; 검색창 &ndash;&gt;-->
+<!--            <div class="text-center my-3">-->
+<!--                <form onsubmit="return goSearch()" class="search-form">-->
+<!--                    <input id="searchText" name="searchText" class="rounded-input" placeholder="검색어 입력">-->
+<!--                    <button type="submit" class="btn-custom">검색</button>-->
+<!--                </form>-->
+<!--            </div>-->
+<!--            <script>-->
+<!--                function goSearch() {-->
+<!--                    const keyword = document.getElementById("searchText").value.trim();-->
+<!--                    if (keyword) {-->
+<!--                        window.location.href = '/search/' + encodeURIComponent(keyword) + '/page/1';-->
+<!--                    }-->
+<!--                    return false;-->
+<!--                }-->
+<!--            </script>-->
+
+<!--            &lt;!&ndash; 우측 로그인 상태별 표시 &ndash;&gt;-->
+<!--            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">-->
+<!--                &lt;!&ndash; 로그인 상태 &ndash;&gt;-->
+<!--                <li class="nav-item" sec:authorize="isAuthenticated()">-->
+<!--                    <a class="nav-link" href="/my-page">-->
+<!--                        <span sec:authentication="principal.displayName"></span> 님-->
+<!--                    </a>-->
+<!--                </li>-->
+<!--                <li class="nav-item" sec:authorize="isAuthenticated()">-->
+<!--                    <a class="nav-link" href="/logout">로그아웃</a>-->
+<!--                </li>-->
+
+<!--                &lt;!&ndash; 비로그인 상태 &ndash;&gt;-->
+<!--                <li class="nav-item" sec:authorize="isAnonymous()">-->
+<!--                    <a class="nav-link" href="/login">Login</a>-->
+<!--                </li>-->
+<!--                <li class="nav-item" sec:authorize="isAnonymous()">-->
+<!--                    <a class="nav-link" href="/register">회원가입</a>-->
+<!--                </li>-->
+<!--            </ul>-->
+
+<!--            &lt;!&ndash; 장바구니 버튼 &ndash;&gt;-->
+<!--            <form class="d-flex" action="/cart" method="get">-->
+<!--                <button class="btn btn-outline-dark" type="submit">-->
+<!--                    <i class="bi-cart-fill me-1"></i>-->
+<!--                    Cart-->
+<!--                    <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>-->
+<!--                </button>-->
+<!--            </form>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</nav>-->

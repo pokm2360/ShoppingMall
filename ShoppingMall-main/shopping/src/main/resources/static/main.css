@@ -1,0 +1,321 @@
+.card {
+ margin: 30px auto;
+ display: flex;
+}
+.card img {
+ width: 150px;
+ margin-right: 20px;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;800&display=swap');
+.nav {
+ display: flex;
+ padding: 10px;
+ align-items: center;
+ font-family : 'Montserrat';
+}
+.nav a {
+ margin-right: 10px;
+ text-decoration : none;
+ font-weight : 400;
+ letter-spacing : -0.5px;
+}
+.nav .logo {
+ font-weight : 800;
+}
+form {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    font-family: 'Montserrat', sans-serif;
+    text-align: center; /* 중앙 정렬 */
+}
+
+form h2 {
+    font-size: 24px;
+    text-align: center; /* 제목 중앙 정렬 */
+    font-weight: bold;
+}
+
+.input-group {
+    margin-bottom: 15px;
+    text-align: center; /* 입력 필드 중앙 정렬 */
+}
+
+.input-group p {
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #333;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+input, button {
+ padding: 8px 13px;
+ margin-top: 5px;
+ border: 1px solid grey;
+ border-radius: 4px;
+ vertical-align: middle;
+}
+button {
+ background: black;
+ color: white;
+ border: none;
+}
+input {
+ display: block;
+}
+.detail {
+  text-align: center;
+}
+.detail img{
+  max-width: 30%;
+  display: block;
+  margin: auto;
+}
+button {
+    cursor: pointer;           /* 마우스 커서가 포인터로 변경 */
+    transition: background-color 0.3s ease, transform 0.3s ease;  /* 호버 시 부드럽게 변경되도록 */
+}
+button:hover {
+    background-color: #45a049;  /* 호버 시 버튼 배경색 변경 */
+    transform: scale(1.1);       /* 버튼 크기 살짝 커지도록 */
+}
+
+/* 회원가입 페이지 스타일 */
+.register-container {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.register-container h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.input-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: #333;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #333;
+}
+
+.input-group input:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.note {
+    font-size: 14px;
+    color: #777;
+    margin-top: 15px;
+    text-align: left;
+}
+
+/* 글 작성 페이지와 로그인 페이지 스타일 */
+form {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    font-family: 'Montserrat', sans-serif;
+}
+
+h4 {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.input-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: #333;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #333;
+}
+
+.input-group input:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+form .note {
+    font-size: 14px;
+    color: #777;
+    margin-top: 15px;
+    text-align: left;
+}
+
+form h4 {
+    font-size: 24px;
+    text-align: center;
+    font-weight: bold;
+}
+
+form .input-group input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    font-size: 16px;
+}
+.nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+}
+
+.nav-links {
+    display: flex;
+    gap: 15px;
+}
+
+/* 오른쪽 끝으로 정렬 */
+.nav-auth {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* 유저 정보 스타일 */
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.displayName {
+    font-weight: bold;
+    color: purple;
+    text-decoration: none;
+}
+
+.displayName:hover {
+    text-decoration: underline;
+}
+
+.logout {
+    color: red;
+    text-decoration: none;
+}
+
+.logout:hover {
+    text-decoration: underline;
+}
+/*페이지*/
+.pagination {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.pagination a {
+    display: inline-block;
+    padding: 10px 15px;
+    margin: 0 5px;
+    text-decoration: none;
+    color: #333;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.pagination a.active {
+    background-color: #333;
+    color: white;
+    font-weight: bold;
+}

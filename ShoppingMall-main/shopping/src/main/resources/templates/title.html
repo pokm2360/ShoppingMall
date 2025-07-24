@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="/main.css" rel="stylesheet">
+</head>
+<body>
+    <div class="card" th:each="i : ${boards}"> <!-- i에 db에 있는 데이터가 지정됨-->
+        <img src="https://placehold.co/300">
+        <div>
+            <h4 th:text="${i.title}"></h4>
+        </div>
+    </div>
+</body>
+</html>
